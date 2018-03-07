@@ -1,0 +1,65 @@
+" History length
+set history=100
+
+set lsview
+
+" Fill files list by columns (not lines). Added in vifm 0.9.1.
+set lsoptions=transposed
+
+" Show status bar
+set laststatus
+
+" Information for status bar
+set statusline="%-35f%10E%20d%15A     |     Осталось места: %8a"
+
+" Columns format
+set viewcolumns=-60%{name},20%{size},{mtime}
+
+" Show the dot files
+set dotfiles
+
+" History to save
+set vifminfo=bookmarks,bmarks,tui,state,cs,savedirs,dhistory,chistory,shistory,phistory,registers
+
+" Enable incremental search
+set incsearch
+
+set ignorecase
+
+" Sort by name (ignore case)
+set sort=+iname
+
+" Standard functional keys
+map <f3> :!gvim -R %f &<cr>
+map <f4> :!gvim %f &<cr>
+map <f5> Y<tab>p<tab>
+map <f6> Y<tab>P<tab>
+map <f7> :mkdir<space>
+map <f8> dd
+map <s-f8> DD
+map <delete> dd
+map <f9> :shell<cr>
+
+" Select and go to next file
+map <space> tj
+
+" Show bookmarks
+map <c-\> :bmarks<cr>
+
+" Select all
+map * ggVG<cr>
+
+" Go to parent directory
+map <bs> gh
+
+" Set directory from other panel
+map <c-s> :cd %D<cr>
+
+filetype *.zip,*.jar,*.war,*.ear
+         \ {Mount with fuse-zip}
+         \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
+         \ {View contents}
+         \ zip -sf %c | less,
+         \ {Extract here}
+         \ tar -xf %c,
+filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND
