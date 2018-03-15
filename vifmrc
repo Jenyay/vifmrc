@@ -34,6 +34,7 @@ map <f3> :!gvim -R %f &<cr>
 map <f4> :!gvim %f &<cr>
 map <f5> Y<tab>p<tab>
 map <f6> Y<tab>P<tab>
+map <s-f6> cw
 map <f7> :mkdir<space>
 map <f8> dd
 map <s-f8> DD
@@ -54,6 +55,8 @@ map <bs> gh
 
 " Set directory from other panel
 map <c-s> :cd %D<cr>
+
+map <c-l> :cd ""<left>
 
 filetype *.zip,*.jar,*.war,*.ear
          \ {Mount with fuse-zip}
