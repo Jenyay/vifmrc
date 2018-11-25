@@ -29,13 +29,17 @@ set ignorecase
 " Sort by name (ignore case)
 set sort=+iname
 
+" Always show tabs
+set showtabline=always
+set tabscope=pane
+
 " Standard functional keys
 map <f3> :!gvim -R %f &<cr>
 map <f4> :!gvim %f &<cr>
 map <f5> Y<tab>p<tab>
 map <f6> Y<tab>P<tab>
 map <s-f6> cw
-map <f7> :mkdir<space>
+map <f7> :mkdir<space> ""<left>
 map <f8> dd
 map <s-f8> DD
 map <delete> dd
@@ -55,6 +59,12 @@ map <bs> gh
 
 " Set directory from other panel
 map <c-s> :cd %D<cr>
+
+" New tab
+map <c-t> :tabnew<cr>
+
+" Close tab
+map <c-w> :tabclose<cr>
 
 map <c-l> :cd ""<left>
 
